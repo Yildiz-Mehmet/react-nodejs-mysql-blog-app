@@ -12,6 +12,9 @@ import {
 } from "@material-ui/core";
 import PenIcon from "@material-ui/icons/Create";
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PostSlice from "./features/postSlice";
+
 function App() {
   return (
     <div className="App">
@@ -36,6 +39,16 @@ function App() {
             </Button>
           </Toolbar>
         </AppBar>
+
+        <Grid container style={{ marginTop: "10px" }}>
+          <Grid item xs={12}>
+            <Router>
+              <Routes>
+                <Route path="/posts" element={<PostSlice />} />
+              </Routes>
+            </Router>
+          </Grid>
+        </Grid>
       </Container>
     </div>
   );
