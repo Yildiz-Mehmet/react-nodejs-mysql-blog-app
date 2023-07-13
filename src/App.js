@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   CssBaseline,
@@ -21,6 +21,7 @@ import {
 import PostsList from "./components/PostsList";
 
 function App() {
+  const [open, setOpen] = useState();
   return (
     <div className="App">
       <CssBaseline />
