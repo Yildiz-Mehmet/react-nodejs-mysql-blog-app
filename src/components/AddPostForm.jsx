@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  Buttom,
+  Button,
   TextField,
   Select,
   Input,
@@ -89,6 +89,9 @@ const AddPostForm = ({ open, setClose }) => {
             </form>
           </div>
         </DialogContent>
+        <DialogActions>
+          <Button></Button>
+        </DialogActions>
       </Dialog>
     </div>
   );
