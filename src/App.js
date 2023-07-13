@@ -18,7 +18,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import PostSlice from "./features/postSlice";
+import PostsList from "./components/PostsList";
 
 function App() {
   return (
@@ -49,7 +49,8 @@ function App() {
           <Grid item xs={12}>
             <Router>
               <Routes>
-                <Route path="/posts" element={<PostSlice />} />
+                <Route path="/" element={<Navigate to="/posts" />} />
+                <Route path="/posts" element={<PostsList />} />
               </Routes>
             </Router>
           </Grid>
