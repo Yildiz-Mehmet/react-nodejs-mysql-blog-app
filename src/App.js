@@ -12,7 +12,12 @@ import {
 } from "@material-ui/core";
 import PenIcon from "@material-ui/icons/Create";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import PostSlice from "./features/postSlice";
 
 function App() {
