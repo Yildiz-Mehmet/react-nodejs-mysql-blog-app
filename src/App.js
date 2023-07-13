@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AddPostForm from "./components/AddPostForm";
 
 import {
   CssBaseline,
@@ -21,7 +22,14 @@ import {
 import PostsList from "./components/PostsList";
 
 function App() {
-  const [open, setOpen] = useState();
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <div className="App">
       <CssBaseline />
@@ -57,6 +65,7 @@ function App() {
           </Grid>
         </Grid>
       </Container>
+      <AddPostForm open={open} handleClose={handleClose} />
     </div>
   );
 }
