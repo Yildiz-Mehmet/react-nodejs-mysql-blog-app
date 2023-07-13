@@ -1,6 +1,6 @@
 import React from "react";
 
-const AddPostForm = () => {
+const AddPostForm = ({ open, setClose }) => {
   return <div>AddPostForm</div>;
 };
 
