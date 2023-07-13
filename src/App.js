@@ -48,7 +48,12 @@ function App() {
             >
               <a href="http://localhost:3000/posts">Blogify</a>
             </Typography>
-            <Button color="primary" variant="outline" startIcon={<PenIcon />}>
+            <Button
+              color="primary"
+              variant="outline"
+              startIcon={<PenIcon />}
+              onClick={handleOpen}
+            >
               Yeni Yazı
             </Button>
           </Toolbar>

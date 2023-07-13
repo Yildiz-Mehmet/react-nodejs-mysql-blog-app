@@ -45,7 +45,7 @@ const AddPostForm = ({ open, setClose }) => {
                 name="title"
                 variant="outlined"
                 size="small"
-                inputRef={register}
+                register="true"
                 error={errors?.title ? true : false}
                 fullWidth
               />
@@ -55,12 +55,12 @@ const AddPostForm = ({ open, setClose }) => {
                 name="subtitle"
                 variant="outlined"
                 size="small"
-                inputRef={register}
+                register="true"
                 error={errors?.subtitle ? true : false}
                 fullWidth
               />
               <Controller
-                as={
+                render={() => (
                   <Select input={<Input />} fullWidth>
                     {tags?.map((tag, index) => {
                       <MenuItem key={index} value={tag}>
@@ -68,7 +68,7 @@ const AddPostForm = ({ open, setClose }) => {
                       </MenuItem>;
                     })}
                   </Select>
-                }
+                )}
                 name="tag"
                 control={control}
                 error={errors?.tag ? true : false}
@@ -79,10 +79,10 @@ const AddPostForm = ({ open, setClose }) => {
                 label="İçerik"
                 name="content"
                 multiline
-                rows={4}
+                minRows={4}
                 variant="outlined"
                 size="small"
-                inputRef={register}
+                register="true"
                 error={errors?.content ? true : false}
                 fullWidth
               />
@@ -90,7 +90,10 @@ const AddPostForm = ({ open, setClose }) => {
           </div>
         </DialogContent>
         <DialogActions>
-          <Button></Button>
+          <Button color="inherit">Vazgeç</Button>
+          <Button type="submit" variant="outlined" color="primary">
+            Yayınla
+          </Button>
         </DialogActions>
       </Dialog>
     </div>
