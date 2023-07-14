@@ -11,10 +11,13 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@material-ui/core";
-import { useForm, Controller } from "react-hook-form";
+import InputLabel from "@mui/material/InputLabel";
+
+import FormControl from "@mui/material/FormControl";
+
+import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import SelectInput from "@material-ui/core/Select/SelectInput";
 
 const tags = ["fun", "programming", "health", "science"];
 
@@ -29,6 +32,11 @@ const AddPostForm = ({ open, setClose }) => {
   const { register, handleSubmit, control, errors, reset } = useForm({
     resolver: yupResolver(postSchema),
   });
+  const [tag, setTag] = React.useState("");
+
+  const handleChange = (event) => {
+    setTag(event.target.value);
+  };
 
   return (
     <div>
@@ -60,21 +68,27 @@ const AddPostForm = ({ open, setClose }) => {
                 error={errors?.subtitle ? true : false}
                 fullWidth
               />
-              <Controller
-                render={({ field }) => (
-                  <Select input={<Input />} {...field} fullWidth>
-                    {tags?.map((tag, index) => {
+              <FormControl fullWidth>
+                <InputLabel id="tag" size="small">
+                  Tag
+                </InputLabel>
+                <Select
+                  id="tag"
+                  value={tag}
+                  label="Tag"
+                  onChange={handleChange}
+                  variant="outlined"
+                  style={{ height: 40 }}
+                >
+                  {tags.map((tag, index) => {
+                    return (
                       <MenuItem key={index} value={tag}>
                         {tag}
-                      </MenuItem>;
-                    })}
-                  </Select>
-                )}
-                name="tag"
-                control={control}
-                error={errors?.tag ? true : false}
-                defaultValue={tags[0]}
-              />
+                      </MenuItem>
+                    );
+                  })}
+                </Select>
+              </FormControl>
               <TextField
                 id="content"
                 label="İçerik"
