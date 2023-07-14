@@ -14,6 +14,7 @@ import {
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import SelectInput from "@material-ui/core/Select/SelectInput";
 
 const tags = ["fun", "programming", "health", "science"];
 
@@ -60,8 +61,8 @@ const AddPostForm = ({ open, setClose }) => {
                 fullWidth
               />
               <Controller
-                render={() => (
-                  <Select input={<Input />} fullWidth>
+                render={({ field }) => (
+                  <Select input={<Input />} {...field} fullWidth>
                     {tags?.map((tag, index) => {
                       <MenuItem key={index} value={tag}>
                         {tag}
